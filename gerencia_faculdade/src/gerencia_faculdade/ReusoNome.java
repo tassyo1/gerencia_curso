@@ -9,6 +9,14 @@ package gerencia_faculdade;
  *
  * @author tassyo1
  */
-public class Professor extends ReusoNome {
+public class ReusoNome {
+    private String nome;
     
+    public String getNome(){
+        return nome;
+    }
+    
+    public void setNome(String nome){
+        this.nome = nome;
+    }
 }

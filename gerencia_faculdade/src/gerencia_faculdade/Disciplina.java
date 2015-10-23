@@ -9,18 +9,10 @@ package gerencia_faculdade;
  *
  * @author tassyo1
  */
-public class Disciplina {
-    private String nome;
+public class Disciplina extends ReusoNome {
+   
     private String ementa;
     private Float carga_horaria;
-    
-    public String getNome(){
-        return nome;
-    }
-    
-    public void setNome(String nome){
-        this.nome = nome;
-    }
     
     public String getEmenta(){
         return ementa;
@@ -38,4 +30,9 @@ public class Disciplina {
        this.carga_horaria = carga_horaria;
     }
     
+    public Disciplina(String nome, String ementa, Float carga_horaria){
+        this.setNome(nome);
+        this.ementa = ementa;
+        this.carga_horaria =carga_horaria;
+    }
 }

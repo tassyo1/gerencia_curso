@@ -9,23 +9,20 @@ package gerencia_faculdade;
  *
  * @author tassyo1
  */
-public class Estudante {
-    private String nome;
+public class Estudante extends ReusoNome {
     private int matricula;
-    
-    public String getNome(){
-        return nome;
-    }
-    
-    public void setNome(String nome){
-        this.nome = nome;
-    }
     
     public int getMatricula(){
         return matricula;
     }
-    
+  
     public void setMatricula(int matricula){
         this.matricula = matricula;
+    }
+    
+    public Estudante( String nome, int matricula){
+        this.setNome(nome);
+        this.matricula = matricula;
+        
     }
 }
