@@ -10,5 +10,7 @@ package gerencia_faculdade;
  * @author tassyo1
  */
 public class Professor extends ReusoNome {
-    
+    public Professor(String nome){
+        this.setNome(nome);
+    }
 }

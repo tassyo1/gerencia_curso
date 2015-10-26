@@ -5,6 +5,8 @@
  */
 package gerencia_faculdade;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author tassyo1
@@ -12,10 +14,10 @@ package gerencia_faculdade;
 public class Turma {
     private int numero;
     private Professor professor_responsavel;
-    private Estudante conjunto_alunos[];
+    private ArrayList<Estudante> conjunto_alunos;
     private Disciplina disciplina;
     
-    public Turma(int numero, Professor professor_responsavel, Estudante alunos[], Disciplina disciplina){
+    public Turma(int numero, Professor professor_responsavel, ArrayList<Estudante> alunos, Disciplina disciplina){
         this.numero = numero;
         this.professor_responsavel = professor_responsavel;
         this.conjunto_alunos = alunos;
@@ -46,11 +48,11 @@ public class Turma {
         this.disciplina = disciplina;
     }
     
-    public Estudante[] getConjuntoAlunos(){
+    public ArrayList<Estudante> getConjuntoAlunos(){
         return conjunto_alunos;
     }
     
-    public void setConjuntoAlunos(Estudante[] conjunto_alunos){
+    public void setConjuntoAlunos(ArrayList<Estudante> conjunto_alunos){
         this.conjunto_alunos = conjunto_alunos;
     }
 }

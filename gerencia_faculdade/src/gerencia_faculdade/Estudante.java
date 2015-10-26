@@ -12,6 +12,7 @@ package gerencia_faculdade;
 public class Estudante extends ReusoNome {
     private int matricula;
     
+    
     public int getMatricula(){
         return matricula;
     }
