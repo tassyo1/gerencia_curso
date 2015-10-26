@@ -16,8 +16,29 @@ public class Gerencia_faculdade {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static Scanner leitor = new Scanner(System.in);
+    
+    public static String primeiroMenuEscolha(ArrayList<Disciplina> d, ArrayList<Turma> t,ArrayList<Estudante> e,ArrayList<Professor> p){
+        System.out.println("..:Sistema de gestão de Faculdade:..");
+        System.out.println("Digite a respectiva letra");
+        System.out.println("(D)isciplinas        Total cadastrado: "+d.size());
+        System.out.println("(T)turmas            Total cadastrado: "+t.size());
+        System.out.println("(A)Alunos            Total cadastrado: "+e.size());
+        System.out.println("(P)rofessores        Total cadastrado: "+p.size());
         
+        String escolha =leitor.nextLine();// texto
+        return escolha;
+    }
+    public static int segundoMenuEscolha(){
+        System.out.println("Digite o respectivo número");
+        System.out.println("1- Criar");
+        System.out.println("2- Excluir");
+        System.out.println("3- Pesquisar");
+        int esc = leitor.nextInt();
+        return esc;
+    }
+    
+    public static void main(String[] args)  {
         ArrayList<Disciplina> d = new ArrayList();
         ArrayList<Turma> t = new ArrayList();
         ArrayList<Estudante> e = new ArrayList();
@@ -41,18 +62,42 @@ public class Gerencia_faculdade {
             t.add(new Turma(i,p.get(i),e,d.get(0)));
         }
        
-        
-        
+       
         //System.out.println(estudantes[0].getNome());
-        for (int i = 0; i < e.size(); i++) {
-           //d System.out.println(e.get(i).getNome());
+        //for (int i = 0; i < e.size(); i++) {
+           // System.out.println(e.get(i).getNome());
+        //}
+        switch(primeiroMenuEscolha(d,t,e,p).toUpperCase()){
+                  case "D":
+                    if (segundoMenuEscolha() == 1){
+                        System.out.println("Digite o nome da Disciplina ");
+                        String n = leitor.next();
+                        
+                        System.out.println("Digite a ementa");
+                        String eme = leitor.next();
+                        System.out.println("Digite a carga horária ");
+                        Float ch = leitor.nextFloat();                        
+                        d.add(new Disciplina(n,eme,ch));
+                        primeiroMenuEscolha(d,t,e,p);
+                    }else if (segundoMenuEscolha() == 2){
+                        
+                    }else if (segundoMenuEscolha() == 3){
+                    
+                    }
+                    break;
+                  case "T":
+                    segundoMenuEscolha();
+                      
+                    break;
+                  case "A":
+                    segundoMenuEscolha();
+                    break;
+                    
+                  case "P":
+                    segundoMenuEscolha();
+                    break;
         }
-        
-        
-        Scanner leitor = new Scanner(System.in);
-        System.out.println("Digite algo");
-        String algo =leitor.nextLine();// texto
-        
+           
     }
     
 }
