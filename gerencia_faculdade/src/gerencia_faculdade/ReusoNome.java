@@ -19,4 +19,8 @@ public class ReusoNome {
     public void setNome(String nome){
         this.nome = nome;
     }
+    
+    public ReusoNome(String nome){
+        this.nome = nome;
+    }
 }

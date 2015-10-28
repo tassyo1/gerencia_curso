@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package gerencia_faculdade;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -40,7 +41,7 @@ public class Gerencia_faculdade {
         return esc;
     }
     
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws IOException  {
         ArrayList<Disciplina> d = new ArrayList<>();
         ArrayList<Turma> t = new ArrayList();
         ArrayList<Estudante> e = new ArrayList();
@@ -86,8 +87,9 @@ public class Gerencia_faculdade {
                                String eme = leitor.nextLine().trim();
                                                               
                                System.out.println("Digite a carga horária ");
-                               Float ch = Float.parseFloat(leitor.nextLine());                        
+                               Float ch = Float.parseFloat(leitor.nextLine().trim());                        
                                d.add(new Disciplina(n,eme,ch));
+                               System.out.println(" ");
                                
                                System.out.println("Disciplina criada!");
                                
@@ -99,16 +101,32 @@ public class Gerencia_faculdade {
                                 System.out.println("");
                                System.out.println("Digite o número da disciplina "
                                            + "que deseja excluir");
-                                  int indice = Integer.parseInt(leitor.next());
+                                  int indice = Integer.parseInt(leitor.next().trim());
                                   d.remove(indice);
+                                  System.out.println(" ");
                                   System.out.println("Disciplina deletada!");
                                   
                                   //pesquisar
                            }else if (escolha == 3){
-                                    for (int i = 0; i < d.size(); i++) {
-                                   System.out.println(d.get(i).getNome()+ " Ementa: "+d.get(i).getEmenta()+ " Carga Horária: "+d.get(i).getCargaHoraria());
+                                   System.out.println("Digite o nome da Disciplina que deseja visualizar");
+                                   String nome = leitor.nextLine().trim();
+                                   
+                                   for (int i = 0; i < d.size(); i++) {
+                                       if( d.get(i).getNome().contains(nome)){
+                                           System.out.println(" ");
+                                           System.out.println(">Disciplina: "+ d.get(i).getNome()+"\n"+
+                                                   "Ementa: "+d.get(i).getEmenta()+"\n"+
+                                                   "Carga Horária: "+d.get(i).getCargaHoraria().toString());
+                                           System.out.println(" ");
+                                           break;
+                                       }
                                }
+                               
+                               
                            }
+                           System.out.println(" ");
+                           System.out.println("Digite qualquer tecla para voltar ao menu");
+                           System.in.read();
                            break;
                          case "T":
                            segundoMenuEscolha();

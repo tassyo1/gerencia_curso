@@ -31,7 +31,7 @@ public class Disciplina extends ReusoNome {
     }
     
     public Disciplina(String nome, String ementa, Float carga_horaria){
-        this.setNome(nome);
+        super(nome);
         this.ementa = ementa;
         this.carga_horaria =carga_horaria;
     }

@@ -11,6 +11,6 @@ package gerencia_faculdade;
  */
 public class Professor extends ReusoNome {
     public Professor(String nome){
-        this.setNome(nome);
+        super(nome);
     }
 }

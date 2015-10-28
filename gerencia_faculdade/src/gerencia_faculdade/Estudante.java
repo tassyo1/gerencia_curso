@@ -22,7 +22,7 @@ public class Estudante extends ReusoNome {
     }
     
     public Estudante( String nome, int matricula){
-        this.setNome(nome);
+        super(nome);
         this.matricula = matricula;
         
     }
