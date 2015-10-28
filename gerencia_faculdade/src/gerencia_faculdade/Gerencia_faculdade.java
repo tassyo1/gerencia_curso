@@ -37,6 +37,7 @@ public class Gerencia_faculdade {
         System.out.println("1- Criar");
         System.out.println("2- Excluir");
         System.out.println("3- Pesquisar");
+        System.out.println("4- Listagem");
         int esc = Integer.parseInt(leitor.nextLine());
         return esc;
     }
@@ -89,8 +90,8 @@ public class Gerencia_faculdade {
                                System.out.println("Digite a carga horária ");
                                Float ch = Float.parseFloat(leitor.nextLine().trim());                        
                                d.add(new Disciplina(n,eme,ch));
-                               System.out.println(" ");
                                
+                               System.out.println(" ");
                                System.out.println("Disciplina criada!");
                                
                                //exclusao
@@ -103,6 +104,7 @@ public class Gerencia_faculdade {
                                            + "que deseja excluir");
                                   int indice = Integer.parseInt(leitor.next().trim());
                                   d.remove(indice);
+                                  
                                   System.out.println(" ");
                                   System.out.println("Disciplina deletada!");
                                   
@@ -112,7 +114,7 @@ public class Gerencia_faculdade {
                                    String nome = leitor.nextLine().trim();
                                    
                                    for (int i = 0; i < d.size(); i++) {
-                                       if( d.get(i).getNome().contains(nome)){
+                                       if( d.get(i).getNome().equals(nome)){
                                            System.out.println(" ");
                                            System.out.println(">Disciplina: "+ d.get(i).getNome()+"\n"+
                                                    "Ementa: "+d.get(i).getEmenta()+"\n"+
@@ -120,17 +122,27 @@ public class Gerencia_faculdade {
                                            System.out.println(" ");
                                            break;
                                        }
-                               }
-                               
-                               
+                                       if (i == (d.size() -1) ){
+                                           System.out.println(" ");
+                                           System.out.println("Disciplina não encontrada !");
+                                       }
+                               }   
+                            //Listagem       
+                           }else if (escolha == 4){
+                              for (int i = 0; i < d.size(); i++) {
+                               System.out.println(d.get(i).getNome());
+                              }
                            }
                            System.out.println(" ");
                            System.out.println("Digite qualquer tecla para voltar ao menu");
-                           System.in.read();
+                           
+                           System.in.read(); // espera uma tecla a ser digitada
                            break;
                          case "T":
-                           segundoMenuEscolha();
-
+                           escolha = segundoMenuEscolha();
+                                if ( escolha == 1){
+                                    
+                                }
                            break;
                          case "A":
                            segundoMenuEscolha();

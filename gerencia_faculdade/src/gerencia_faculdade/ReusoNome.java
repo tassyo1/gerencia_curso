@@ -9,7 +9,7 @@ package gerencia_faculdade;
  *
  * @author tassyo1
  */
-public class ReusoNome {
+public abstract class ReusoNome {
     private String nome;
     
     public String getNome(){
