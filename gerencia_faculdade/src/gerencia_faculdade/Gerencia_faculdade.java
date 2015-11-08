@@ -48,15 +48,57 @@ public class Gerencia_faculdade {
         ArrayList<Estudante> e = new ArrayList();
         ArrayList<Professor> p = new ArrayList();
         
-        for (int i = 0; i < 5; i++) {
-            d.add( new Disciplina("Disciplina "+i, "Ementa da Disciplina "+i,
-                                    30.6f));
-        }
+        //inserção de matérias
+        d.add( new Disciplina("Matemática","Trigonometria, algebrar, aritmética, equação do segundo grau",40.5f));
+        d.add( new Disciplina("Português","classe gramatical, interpretação de texto, regência",30.6f));
+        d.add( new Disciplina("Química","Tabela periódica, metaís, gazes nobres",25.5f));
+        d.add( new Disciplina("Geografia","Planaltos, planícies, erosão",50.5f));
+        d.add( new Disciplina("Inglês","verbo to be, genitive case, verbo to have",30.0f));
         
-        for (int i = 0; i < 10; i++) {
-            p.add( new Professor("Professor "+i));
-        }
+        //inserção de professores
+        p.add( new Professor("Carlos Sampaio"));
+        p.add( new Professor("Marisa Mendes"));
+        p.add( new Professor("Almir Ferreira"));
+        p.add( new Professor("José Raed"));
+        p.add( new Professor("Milena Popovic"));
+        p.add( new Professor("Olavo de Carvalho"));
+        p.add( new Professor("Eloi Veit"));
+        p.add( new Professor("Paulo Ricardo"));
+        p.add( new Professor("Luis Gonzaga de Carvalho"));
+        p.add( new Professor("Cida Campos"));
         
+        // inserção de alunos
+        e.add(new Estudante("Eduarda Sacon",2015001)); 
+        e.add(new Estudante("Andressa Gebert",2015002));
+        e.add(new Estudante("Jéssica Taynara Amorim",2015003)); 
+        e.add(new Estudante("Lucas Zancan",2015004));
+        e.add(new Estudante("Vivian Camille Pires",2015005)); 
+        e.add(new Estudante("Flávia Tormes Tossatti",2015006));
+        e.add(new Estudante("Moisés Fernando Basso Moreira",2015007)); 
+        e.add(new Estudante("Isabela Cristina S. Vergani",2015008));
+        e.add(new Estudante("Maria Luiza Ben Benetti ",2015009));
+        e.add(new Estudante("Julio César Lopes",2015010));
+        e.add(new Estudante("Guilherme Gabriel Wessler",2015011)); 
+        e.add(new Estudante("Fernando da Rosa",2015012));
+        e.add(new Estudante("Moisés Grassi",2015013)); 
+        e.add(new Estudante("Ricieri Eloir Saretto Preis",2015014));
+        e.add(new Estudante("Victor Ferreira",2015015)); 
+        e.add(new Estudante("Gabrielly V. Gimenes",2015016));
+        e.add(new Estudante("Maria Clara M. Guth",2015017)); 
+        e.add(new Estudante("Paulo Ricardo S. Ribeiro",2015018));
+        e.add(new Estudante("Miryan B. S. Da Rosa",2015019)); 
+        e.add(new Estudante("Eduarda Dückel",2015020));
+        e.add(new Estudante("Edimar Gabriel Klaus Herckert",2015020)); 
+        e.add(new Estudante("Maria Claudia Teixeira",2015021));
+        e.add(new Estudante("Kaua Zeiser Dias",2015022)); 
+        e.add(new Estudante("Mauricio Loewenstein",2015023));
+        e.add(new Estudante("Natália K. Wessler",2015024));  
+        e.add(new Estudante("Guilherme A. Beckert",2015025));
+        e.add(new Estudante("Maria Fernanda S. Vian",2015026));  
+        e.add(new Estudante("Clara Eloísa Sehn",2015027));
+        e.add(new Estudante("Leonardo H. Rech Simonetti",2015028)); 
+        e.add(new Estudante("Bianca Beling",2015029));
+        e.add(new Estudante("Italo Lorenzoni",2015030));
         int conta_aluno =0;
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 30; j++) {
