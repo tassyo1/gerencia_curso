@@ -10,7 +10,12 @@ package gerencia_faculdade;
  * @author tassyo1
  */
 public class Professor extends ReusoNome {
-    public Professor(String nome){
+    private int numero;
+    private String email;
+    
+    public Professor(String nome, int numero, String email){
         super(nome);
+        this.numero = numero;
+        this.email = email;
     }
 }

@@ -56,16 +56,16 @@ public class Gerencia_faculdade {
         d.add( new Disciplina("Inglês","verbo to be, genitive case, verbo to have",30.0f));
         
         //inserção de professores
-        p.add( new Professor("Carlos Sampaio"));
-        p.add( new Professor("Marisa Mendes"));
-        p.add( new Professor("Almir Ferreira"));
-        p.add( new Professor("José Raed"));
-        p.add( new Professor("Milena Popovic"));
-        p.add( new Professor("Olavo de Carvalho"));
-        p.add( new Professor("Eloi Veit"));
-        p.add( new Professor("Paulo Ricardo"));
-        p.add( new Professor("Luis Gonzaga de Carvalho"));
-        p.add( new Professor("Cida Campos"));
+        p.add( new Professor("Carlos Sampaio",45578,"csampaio@uniescola.edu.br"));
+        p.add( new Professor("Marisa Mendes",22334,"marisa_mendes@uniescola.edu.br"));
+        p.add( new Professor("Almir Ferreira",99757,"almirf@uniescola.edu.br"));
+        p.add( new Professor("José Raed",79858,"joser@uniescola.edu.br"));
+        p.add( new Professor("Milena Popovic",65453,"mp@uniescola.edu.br"));
+        p.add( new Professor("Olavo de Carvalho",32456,"oC@uniescola.edu.br"));
+        p.add( new Professor("Eloi Veit",43235,"eloiV@uniescola.edu.br"));
+        p.add( new Professor("Paulo Ricardo",42568,"pauloricardo@uniescola.edu.br"));
+        p.add( new Professor("Luis Gonzaga de Carvalho",32456,"luisgonzada@uniescola.edu.br"));
+        p.add( new Professor("Cida Campos",12345,"cida_campos@uniescola.edu.br"));
         
         // inserção de alunos
         e.add(new Estudante("Eduarda Sacon",2015001)); 
@@ -194,9 +194,15 @@ public class Gerencia_faculdade {
                              
                          case "T":
                            escolha = segundoMenuEscolha();
-                                if ( escolha == 1){
+                           
+                           // criar
+                           if ( escolha == 1){
+                               System.out.println("Digite o número da disciplina ");
+                               int nr = Integer.parseInt(leitor.nextLine());
+                               
+                               System.out.println("Digite o número do Professor ");
                                     
-                                }
+                           }
                            break;
                          case "A":
                            segundoMenuEscolha();
