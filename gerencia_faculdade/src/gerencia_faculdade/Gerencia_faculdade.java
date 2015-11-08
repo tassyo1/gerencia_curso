@@ -71,48 +71,58 @@ public class Gerencia_faculdade {
         e.add(new Estudante("Eduarda Sacon",2015001)); 
         e.add(new Estudante("Andressa Gebert",2015002));
         e.add(new Estudante("Jéssica Taynara Amorim",2015003)); 
+        
         e.add(new Estudante("Lucas Zancan",2015004));
         e.add(new Estudante("Vivian Camille Pires",2015005)); 
         e.add(new Estudante("Flávia Tormes Tossatti",2015006));
+        
         e.add(new Estudante("Moisés Fernando Basso Moreira",2015007)); 
         e.add(new Estudante("Isabela Cristina S. Vergani",2015008));
         e.add(new Estudante("Maria Luiza Ben Benetti ",2015009));
+        
         e.add(new Estudante("Julio César Lopes",2015010));
         e.add(new Estudante("Guilherme Gabriel Wessler",2015011)); 
         e.add(new Estudante("Fernando da Rosa",2015012));
+        
         e.add(new Estudante("Moisés Grassi",2015013)); 
         e.add(new Estudante("Ricieri Eloir Saretto Preis",2015014));
         e.add(new Estudante("Victor Ferreira",2015015)); 
+        
         e.add(new Estudante("Gabrielly V. Gimenes",2015016));
         e.add(new Estudante("Maria Clara M. Guth",2015017)); 
         e.add(new Estudante("Paulo Ricardo S. Ribeiro",2015018));
+        
         e.add(new Estudante("Miryan B. S. Da Rosa",2015019)); 
         e.add(new Estudante("Eduarda Dückel",2015020));
-        e.add(new Estudante("Edimar Gabriel Klaus Herckert",2015020)); 
-        e.add(new Estudante("Maria Claudia Teixeira",2015021));
-        e.add(new Estudante("Kaua Zeiser Dias",2015022)); 
-        e.add(new Estudante("Mauricio Loewenstein",2015023));
-        e.add(new Estudante("Natália K. Wessler",2015024));  
-        e.add(new Estudante("Guilherme A. Beckert",2015025));
-        e.add(new Estudante("Maria Fernanda S. Vian",2015026));  
-        e.add(new Estudante("Clara Eloísa Sehn",2015027));
-        e.add(new Estudante("Leonardo H. Rech Simonetti",2015028)); 
-        e.add(new Estudante("Bianca Beling",2015029));
-        e.add(new Estudante("Italo Lorenzoni",2015030));
-        int conta_aluno =0;
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 30; j++) {
-            e.add(new Estudante("Aluno "+conta_aluno,conta_aluno));
-            conta_aluno++;
-        } 
-            t.add(new Turma(i,p.get(i),e,d.get(0)));
-        }
+        e.add(new Estudante("Edimar Gabriel Klaus Herckert",2015021)); 
+        
+        e.add(new Estudante("Maria Claudia Teixeira",2015022));
+        e.add(new Estudante("Kaua Zeiser Dias",2015023)); 
+        e.add(new Estudante("Mauricio Loewenstein",2015024));
+        
+        e.add(new Estudante("Natália K. Wessler",2015025));          
+        e.add(new Estudante("Guilherme A. Beckert",2015026));
+        e.add(new Estudante("Maria Fernanda S. Vian",2015027));
+        
+        e.add(new Estudante("Clara Eloísa Sehn",2015028));
+        e.add(new Estudante("Leonardo H. Rech Simonetti",2015029)); 
+        e.add(new Estudante("Bianca Beling",2015030));
+        
+        ///
+        /// inserção de turma
+        
+        t.add(new Turma(801,p.get(0), new ArrayList(e.subList(0, 3)), d.get(0)));
+        t.add(new Turma(823,p.get(1), new ArrayList(e.subList(3, 6)), d.get(1)));
+        t.add(new Turma(854,p.get(2), new ArrayList(e.subList(6, 9)), d.get(2)));
+        t.add(new Turma(876,p.get(3), new ArrayList(e.subList(9, 12)), d.get(3)));
+        t.add(new Turma(887,p.get(4), new ArrayList(e.subList(12, 15)), d.get(4)));
+        t.add(new Turma(898,p.get(5), new ArrayList(e.subList(15, 18)), d.get(0)));
+        t.add(new Turma(457,p.get(6), new ArrayList(e.subList(18, 21)), d.get(1)));
+        t.add(new Turma(856,p.get(7), new ArrayList(e.subList(21, 24)), d.get(2)));
+        t.add(new Turma(456,p.get(8), new ArrayList(e.subList(24, 27)), d.get(3)));
+        t.add(new Turma(752,p.get(9), new ArrayList(e.subList(27, 30)), d.get(4)));
+ 
        
-       
-        //System.out.println(estudantes[0].getNome());
-        //for (int i = 0; i < e.size(); i++) {
-           // System.out.println(e.get(i).getNome());
-        //}
         String pescolha ="";
         do{
                 pescolha = primeiroMenuEscolha(d,t,e,p).toUpperCase().trim();
@@ -180,6 +190,8 @@ public class Gerencia_faculdade {
                            
                            System.in.read(); // espera uma tecla a ser digitada
                            break;
+                             
+                             
                          case "T":
                            escolha = segundoMenuEscolha();
                                 if ( escolha == 1){
