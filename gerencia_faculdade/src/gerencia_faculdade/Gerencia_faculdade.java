@@ -311,6 +311,7 @@ public class Gerencia_faculdade {
                                                 "Professor: "+t.get(i).getProfessorResponsavel().getNome()+"\n"+
                                                 "Alunos: \n"+alunos_concat+
                                                 "Disciplina: "+t.get(i).getDisciplina().getNome());
+                                        break;
                                    }
                                    if (i == (t.size() -1) ){
                                            System.out.println(" ");
@@ -362,11 +363,19 @@ public class Gerencia_faculdade {
                                System.out.println("");
                                System.out.println("Digite o número da matricula do Aluno "
                                            + "que deseja excluir");
-                                  int indice = Integer.parseInt(leitor.nextLine().trim());
-                                  e.remove(indice);
+                                  int e_mat = Integer.parseInt(leitor.nextLine().trim());
                                   
-                                  System.out.println(" ");
-                                  System.out.println("Aluno deletado!");
+                                  for (int i = 0; i < e.size(); i++) {
+                                      if(e.get(i).getMatricula() == e_mat){
+                                          e.remove(i);
+                                          
+                                          System.out.println(" ");
+                                          System.out.println("Aluno deletado!");
+                                          break;
+                                      }
+                                  }
+                                                                  
+                                  
                                
                                // pesquisar
                            }else if(escolha == 3){
@@ -377,6 +386,7 @@ public class Gerencia_faculdade {
                                    if (e.get(i).getMatricula() == mat){
                                        System.out.println("Aluno: "+ e.get(i).getNome()+"\n"+
                                                             "Matricula: "+ e.get(i).getMatricula());
+                                       break;
                                    }
                                }
                                
@@ -398,10 +408,58 @@ public class Gerencia_faculdade {
                          case "P":
                            escolha = segundoMenuEscolha();
                            
+                           //criar
                            if(escolha ==1){
+                               System.out.println("Digite o nome do Professor");
+                               String nom_p = leitor.nextLine().trim();
+                               System.out.println("Digite o número de cadastro do Professor");
+                               int nr_p = Integer.parseInt(leitor.nextLine().trim());
+                               System.out.println("Digite o e-mail do Professor");
+                               String e_p = leitor.nextLine().trim();
                                
+                               p.add(new Professor(nom_p,nr_p,e_p));
+                               
+                               System.out.println(" ");
+                               System.out.println("Professor cadastrado!");
+                               
+                            //exclusao   
                            }else if(escolha == 2){
+                               for (int i = 0; i < p.size(); i++) {
+                                   System.out.println("Número: "+p.get(i).getNumero()+" Professor: "+p.get(i).getNome());
+                               }
+                            System.out.println(" ");   
+                            System.out.println("Digite o número de cadastro Professor");
+                            int nr_p = Integer.parseInt(leitor.nextLine().trim());
+                            
+                               for (int i = 0; i < p.size(); i++) {
+                                   if( p.get(i).getNumero() == nr_p){
+                                       p.remove(i);
+                                       
+                                       System.out.println(" ");
+                                       System.out.println("Professor deletado!");
+                                       break;
+                                   }
+                               }
+                               //pesquisar
+                           }else if(escolha == 3){
+                              System.out.println("Digite o número do Professor que voce deseja pesquisar");
+                               int nr_p = Integer.parseInt(leitor.nextLine().trim());
                                
+                               for (int i = 0; i < p.size(); i++) {
+                                   if (p.get(i).getNumero() == nr_p){
+                                       System.out.println("Nome: "+ p.get(i).getNome()+"\n"+
+                                                            "Número: "+ p.get(i).getNumero()+"\n "+
+                                                            "E-mail: "+p.get(i).getEmail());
+                                       break;
+                                   }
+                               } 
+                               //listagem
+                           }else if(escolha == 4){
+                               System.out.println(" ");
+                               System.out.println("Listagem de Professor");
+                               for (int i = 0; i < p.size(); i++) {
+                                   System.out.println(p.get(i).getNome()+ " Número: "+ p.get(i).getNumero()+" E-mail: "+p.get(i).getEmail());
+                               } 
                            }
                            
                            System.out.println(" ");

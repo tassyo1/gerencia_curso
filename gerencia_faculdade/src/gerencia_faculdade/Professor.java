@@ -26,5 +26,7 @@ public class Professor extends ReusoNome {
         this.numero = numero;
     }
     
-    
+    public String getEmail(){
+        return this.email;
+    }
 }
