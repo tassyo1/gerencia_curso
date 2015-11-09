@@ -193,23 +193,95 @@ public class Gerencia_faculdade {
                              
                              
                          case "T":
-                           escolha = segundoMenuEscolha();
-                           
+                           escolha = segundoMenuEscolha();  
                            // criar
                            if ( escolha == 1){
-                               System.out.println("Digite o número da disciplina ");
+                               String escolha_insert;
+                               ArrayList<Estudante> eArray = new ArrayList<>();
+                               
+                               System.out.println("Digite o número da turma ");
                                int nr = Integer.parseInt(leitor.nextLine());
                                
-                               System.out.println("Digite o número do Professor ");
-                                    
+                               for (int i = 0; i < p.size(); i++) {
+                                   System.out.println(p.get(i).getNumero()+"<-- "+p.get(i).getNome());
+                               }
+                               System.out.println("");
+                               System.out.println("Digite o número do Professor desejado");
+                               int nr_prof = Integer.parseInt(leitor.nextLine());
+                               
+                               do{
+                               System.out.println("Digite a matrícula do aluno que você deseja inserir nessa turma");
+                               for(int i = 0; i < e.size(); i++){
+                                   System.out.println(e.get(i).getMatricula()+"<- "+e.get(i).getNome());
+                               }
+                               int nr_matricula = Integer.parseInt(leitor.nextLine());
+                                                             
+                               for (int i = 0; i < e.size(); i++) {
+                                   boolean critica = true;
+                                   for (int j = 0; j < eArray.size(); j++) {
+                                       if(eArray.get(j).getMatricula() == nr_matricula){
+                                        System.out.println(" ");
+                                        System.out.println("Esse aluno já foi adicionado nessa turma"); // critica
+                                        critica = false;
+                                       }
+                                       break;
+                                   }
+                                   if (critica){ 
+                                        if(e.get(i).getMatricula() == nr_matricula){
+                                            eArray.add(e.get(i));
+                                            break;
+                                        }
+                                        if(i == (e.size() -1)){
+                                            System.out.println(" ");
+                                            System.out.println("Matrícula não encontrada.");
+                                            break;
+                                        }
+                                   }else{
+                                       break;
+                                   }
+                               }                              
+                               System.out.println("Deseja inserir outro aluno? S/N");
+                               escolha_insert =leitor.nextLine().trim().toUpperCase(); 
+                               }while(escolha_insert != "N");
+                               
+                               
+                               System.out.println(" ");
+                               System.out.println("Digite o número da respectiva disciplina");
+                               for (int i = 0; i < d.size(); i++) {
+                                   System.out.println(i+"<--"+d.get(i).getNome());
+                               }
+                               
+                               System.out.println(" ");
+                               int nr_disci = Integer.parseInt(leitor.nextLine());
+                               
+                               
+                               t.add(new Turma(nr,p.get(nr_prof),eArray,d.get(nr_disci)));
+                               System.out.println(" ");
+                               System.out.println("Disciplina criada!");
                            }
+                           
+                           System.out.println(" ");
+                           System.out.println("Digite qualquer tecla para voltar ao menu");
+                           
+                           System.in.read(); // espera uma tecla a ser digitada
+                           
                            break;
                          case "A":
                            segundoMenuEscolha();
+                           
+                           System.out.println(" ");
+                           System.out.println("Digite qualquer tecla para voltar ao menu");
+                           
+                           System.in.read(); // espera uma tecla a ser digitada
                            break;
 
                          case "P":
                            segundoMenuEscolha();
+                           
+                           System.out.println(" ");
+                           System.out.println("Digite qualquer tecla para voltar ao menu");
+                           
+                           System.in.read(); // espera uma tecla a ser digitada
                            break;
                          
                }

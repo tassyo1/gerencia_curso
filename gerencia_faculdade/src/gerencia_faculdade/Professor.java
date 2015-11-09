@@ -18,4 +18,13 @@ public class Professor extends ReusoNome {
         this.numero = numero;
         this.email = email;
     }
+    
+    public int getNumero(){
+        return numero;
+    }
+    public void setNumero(int numero){
+        this.numero = numero;
+    }
+    
+    
 }
