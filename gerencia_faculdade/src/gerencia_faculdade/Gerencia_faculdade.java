@@ -153,17 +153,28 @@ public class Gerencia_faculdade {
                                for (int i = 0; i < d.size(); i++) {
                                    System.out.println(i+"<-- "+d.get(i).getNome());
                                }
+                               
+                              
                                System.out.println("");
                                System.out.println("Digite o número da disciplina "
                                            + "que deseja excluir");
                                   int indice = Integer.parseInt(leitor.nextLine().trim());
                                   
-                                  
-                                  d.remove(indice);
-                                  
-                                  System.out.println(" ");
-                                  System.out.println("Disciplina deletada!");
-                                  
+                                  for (int i = 0; i < d.size(); i++) {
+                                       if( i == indice){
+                                           d.remove(indice);
+                                           
+                                           System.out.println(" ");
+                                           System.out.println("Disciplina deletada!");
+                                           break;
+                                       }
+                                       if(i == (d.size() -1)){
+                                           System.out.println(" ");
+                                           System.out.println("Disciplina não encontrada!");
+                                       }
+                                   }
+                              
+                               
                                   //pesquisar
                            }else if (escolha == 3){
                                    System.out.println("Digite o nome da Disciplina que deseja visualizar");
@@ -296,10 +307,7 @@ public class Gerencia_faculdade {
                                         System.out.println("Turma deletada!");
                                         break;
                                       }
-                                  }
-                                  
-                                  
-                                                          
+                                  }                 
                            //pesquisar
                            }else if (escolha == 3){
                               System.out.println("Digite o número da Turma que deseja visualizar");
@@ -322,9 +330,6 @@ public class Gerencia_faculdade {
                                            System.out.println("Turma não encontrada !");
                                    }   
                                }
-                                   
-                           
-                               
                                //listagem
                            }else if (escolha == 4){
                                System.out.println(" ");
@@ -362,7 +367,13 @@ public class Gerencia_faculdade {
                                    System.out.println("");
                                    System.out.println("Digite um número com no máximo 10 algarísmos!");
                                    System.out.println("");
-                               }else
+                               }else if(nr_mat_teste.equals("")){
+                                   testa = false;
+                                   System.out.println("");
+                                   System.out.println("Campo não pode ser vazio!");
+                                   System.out.println("");
+                               }
+                               else
                                {
                                    nr_mat = Integer.parseInt(nr_mat_teste);
                                    testa = true;
@@ -401,13 +412,36 @@ public class Gerencia_faculdade {
                                        break;
                                         }
                                   }
-                                                                  
-                                  
-                               
                                // pesquisar
                            }else if(escolha == 3){
+                               int mat=0;
+                               String nr_mat_teste="";
+                               boolean testa =true;
+                               
+                               do{
                                System.out.println("Digite a matricula do aluno que voce deseja pesquisar");
-                               int mat = leitor.nextInt();
+                               nr_mat_teste = leitor.nextLine();
+                               
+                               if(String.valueOf(nr_mat_teste).length() > 10){
+                                   testa = false;
+                                   System.out.println("");
+                                   System.out.println("Digite um número com no máximo 10 algarísmos!");
+                                   System.out.println("");
+                               }else if(nr_mat_teste.equals("")){
+                                   testa = false;
+                                   System.out.println("");
+                                   System.out.println("Campo não pode ser vazio!");
+                                   System.out.println("");
+                               }
+                               else
+                               {
+                                   mat = Integer.parseInt(nr_mat_teste);
+                                   testa = true;
+                               }
+                                   
+                                   
+                               }while(!testa);                          
+                               
                                
                                for (int i = 0; i < e.size(); i++) {
                                    if (e.get(i).getMatricula() == mat){
@@ -444,8 +478,34 @@ public class Gerencia_faculdade {
                            if(escolha ==1){
                                System.out.println("Digite o nome do Professor");
                                String nom_p = leitor.nextLine().trim();
+                               
+                               boolean testa = true;
+                               String nr_teste="";
+                               int nr_p = 0;
+                               
+                               do{
                                System.out.println("Digite o número de cadastro do Professor");
-                               int nr_p = Integer.parseInt(leitor.nextLine().trim());
+                                nr_teste = leitor.nextLine().trim();
+                                
+                                if(String.valueOf(nr_teste).length() > 10){
+                                   testa = false;
+                                   System.out.println("");
+                                   System.out.println("Digite um número com no máximo 10 algarísmos!");
+                                   System.out.println("");
+                               }else if(nr_teste.equals("")){
+                                   testa = false;
+                                   System.out.println("");
+                                   System.out.println("Campo não pode ser vazio!");
+                                   System.out.println("");
+                               }
+                                else
+                               {
+                                   nr_p = Integer.parseInt(nr_teste);
+                                   testa = true;
+                               }
+                               
+                               }while(!testa);
+                               
                                System.out.println("Digite o e-mail do Professor");
                                String e_p = leitor.nextLine().trim();
                                
@@ -474,8 +534,33 @@ public class Gerencia_faculdade {
                                }
                                //pesquisar
                            }else if(escolha == 3){
-                              System.out.println("Digite o número do Professor que voce deseja pesquisar");
-                               int nr_p = Integer.parseInt(leitor.nextLine().trim());
+                              
+                               boolean testa = true;
+                               String nr_teste="";
+                               int nr_p = 0;
+                               
+                               do{
+                               System.out.println("Digite o número do Professor que voce deseja pesquisar");
+                               nr_teste = leitor.nextLine().trim();
+                               
+                               if(String.valueOf(nr_teste).length() > 10){
+                                   testa = false;
+                                   System.out.println("");
+                                   System.out.println("Digite um número com no máximo 10 algarísmos!");
+                                   System.out.println("");
+                               
+                               }else if(nr_teste.equals("")){
+                                   testa = false;
+                                   System.out.println("");
+                                   System.out.println("Campo não pode ser vazio!");
+                                   System.out.println("");
+                               }
+                               else{
+                                   nr_p = Integer.parseInt(nr_teste);
+                                   testa = true;
+                               }
+                               
+                               }while(!testa);
                                
                                for (int i = 0; i < p.size(); i++) {
                                    if (p.get(i).getNumero() == nr_p){
@@ -483,6 +568,13 @@ public class Gerencia_faculdade {
                                                             "Número: "+ p.get(i).getNumero()+"\n "+
                                                             "E-mail: "+p.get(i).getEmail());
                                        break;
+                                   }
+                                   if(i == (p.size()- 1)){
+                                     
+                                       System.out.println(" ");
+                                           System.out.println("Professor não encontrado!");
+                                       break;
+                                    
                                    }
                                } 
                                //listagem
