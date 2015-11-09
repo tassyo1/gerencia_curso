@@ -42,6 +42,7 @@ public class Gerencia_faculdade {
         return esc;
     }
     
+    
     public static void main(String[] args) throws IOException  {
         ArrayList<Disciplina> d = new ArrayList<>();
         ArrayList<Turma> t = new ArrayList();
@@ -141,6 +142,7 @@ public class Gerencia_faculdade {
                                                               
                                System.out.println("Digite a carga horária ");
                                Float ch = Float.parseFloat(leitor.nextLine().trim());                        
+                                                     
                                d.add(new Disciplina(n,eme,ch));
                                
                                System.out.println(" ");
@@ -151,10 +153,12 @@ public class Gerencia_faculdade {
                                for (int i = 0; i < d.size(); i++) {
                                    System.out.println(i+"<-- "+d.get(i).getNome());
                                }
-                                System.out.println("");
+                               System.out.println("");
                                System.out.println("Digite o número da disciplina "
                                            + "que deseja excluir");
                                   int indice = Integer.parseInt(leitor.nextLine().trim());
+                                  
+                                  
                                   d.remove(indice);
                                   
                                   System.out.println(" ");
@@ -345,8 +349,26 @@ public class Gerencia_faculdade {
                                System.out.println("Digite o nome do Aluno");
                                String n = leitor.nextLine().trim();
                                
+                               int nr_mat=0;
+                               String nr_mat_teste="";
+                               boolean testa =true;
+                               
+                               do{
                                System.out.println("Digite a matrícula do Aluno");
-                               int nr_mat = Integer.parseInt(leitor.nextLine().trim());
+                                 nr_mat_teste = leitor.nextLine().trim();
+                                
+                               if(String.valueOf(nr_mat_teste).length() > 10){
+                                   testa = false;
+                                   System.out.println("");
+                                   System.out.println("Digite um número com no máximo 10 algarísmos!");
+                                   System.out.println("");
+                               }else
+                               {
+                                   nr_mat = Integer.parseInt(nr_mat_teste);
+                                   testa = true;
+                               }
+                               
+                               }while(!testa);
                                
                                e.add(new Estudante(n, nr_mat));
                                
@@ -363,7 +385,7 @@ public class Gerencia_faculdade {
                                System.out.println("");
                                System.out.println("Digite o número da matricula do Aluno "
                                            + "que deseja excluir");
-                                  int e_mat = Integer.parseInt(leitor.nextLine().trim());
+                                  int e_mat = leitor.nextInt();
                                   
                                   for (int i = 0; i < e.size(); i++) {
                                       if(e.get(i).getMatricula() == e_mat){
@@ -373,6 +395,11 @@ public class Gerencia_faculdade {
                                           System.out.println("Aluno deletado!");
                                           break;
                                       }
+                                      if(i == (e.size() -1)){
+                                       System.out.println(" ");
+                                           System.out.println("Aluno não encontrado!");
+                                       break;
+                                        }
                                   }
                                                                   
                                   
@@ -380,7 +407,7 @@ public class Gerencia_faculdade {
                                // pesquisar
                            }else if(escolha == 3){
                                System.out.println("Digite a matricula do aluno que voce deseja pesquisar");
-                               int mat = Integer.parseInt(leitor.nextLine().trim());
+                               int mat = leitor.nextInt();
                                
                                for (int i = 0; i < e.size(); i++) {
                                    if (e.get(i).getMatricula() == mat){
@@ -388,6 +415,11 @@ public class Gerencia_faculdade {
                                                             "Matricula: "+ e.get(i).getMatricula());
                                        break;
                                    }
+                                   if(i == (e.size() -1)){
+                                       System.out.println(" ");
+                                           System.out.println("Aluno não encontrado!");
+                                       break;
+                                   } 
                                }
                                
                                //listagem
