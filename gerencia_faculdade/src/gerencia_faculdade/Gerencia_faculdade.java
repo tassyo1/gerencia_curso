@@ -64,7 +64,7 @@ public class Gerencia_faculdade {
         p.add( new Professor("Olavo de Carvalho",32456,"oC@uniescola.edu.br"));
         p.add( new Professor("Eloi Veit",43235,"eloiV@uniescola.edu.br"));
         p.add( new Professor("Paulo Ricardo",42568,"pauloricardo@uniescola.edu.br"));
-        p.add( new Professor("Luis Gonzaga de Carvalho",32456,"luisgonzada@uniescola.edu.br"));
+        p.add( new Professor("Luis Gonzaga de Carvalho",45856,"luisgonzada@uniescola.edu.br"));
         p.add( new Professor("Cida Campos",12345,"cida_campos@uniescola.edu.br"));
         
         // inserção de alunos
