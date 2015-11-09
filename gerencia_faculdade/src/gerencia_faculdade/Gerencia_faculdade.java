@@ -273,18 +273,51 @@ public class Gerencia_faculdade {
                                
                                t.add(new Turma(nr,professor_add,eArray,d.get(nr_disci)));
                                System.out.println(" ");
-                               System.out.println("Disciplina criada!");
+                               System.out.println("Turma criada!");
                            
                            
 
                             //exclusao
                            }else if(escolha == 2){
-                               
-                           
-                           
+                               for (int i = 0; i < t.size(); i++) {
+                                   System.out.println("Turma: "+ t.get(i).getNumero());
+                               }
+                               System.out.println("");
+                               System.out.println("Digite o número da turma que deseja excluir");
+                                  int indice = Integer.parseInt(leitor.nextLine().trim());
+                                  
+                                  for (int i = 0; i < t.size(); i++) {
+                                      if (t.get(i).getNumero() == indice){                                      
+                                        t.remove(i);
+                                        System.out.println("Turma deletada!");
+                                        break;
+                                      }
+                                  }
+                                  
+                                  
+                                                          
                            //pesquisar
                            }else if (escolha == 3){
-                           
+                              System.out.println("Digite o número da Turma que deseja visualizar");
+                              int nr = Integer.parseInt(leitor.nextLine().trim());
+                              
+                               for (int i = 0; i < t.size(); i++) {
+                                   if(t.get(i).getNumero() == nr){
+                                       String alunos_concat="";
+                                       for (int j = 0; j < t.get(i).getConjuntoAlunos().size(); j++) {
+                                           alunos_concat +=t.get(i).getConjuntoAlunos().get(j).getNome()+" Matrícula: "+ t.get(i).getConjuntoAlunos().get(j).getMatricula()+ "\n";
+                                       }
+                                        System.out.println("Turma: "+ t.get(i).getNumero()+"\n"+
+                                                "Professor: "+t.get(i).getProfessorResponsavel().getNome()+"\n"+
+                                                "Alunos: \n"+alunos_concat+
+                                                "Disciplina: "+t.get(i).getDisciplina().getNome());
+                                   }
+                                   if (i == (t.size() -1) ){
+                                           System.out.println(" ");
+                                           System.out.println("Turma não encontrada !");
+                                   }   
+                               }
+                                   
                            
                                
                                //listagem
@@ -293,8 +326,7 @@ public class Gerencia_faculdade {
                                System.out.println("Listagem das turmas");
                                for (int i = 0; i < t.size(); i++) {
                                    System.out.println("Turma: "+ t.get(i).getNumero());
-                               }
-                               
+                               }  
                            }
 
                            
@@ -305,7 +337,20 @@ public class Gerencia_faculdade {
                            
                            break;
                          case "A":
-                           segundoMenuEscolha();
+                           escolha = segundoMenuEscolha();
+                           
+                           if (escolha == 1){
+                               
+                           }else if(escolha == 2){
+                               
+                           }else if(escolha == 3){
+                               
+                           }else if(escolha == 4){
+                               
+                           }
+                           
+                           
+                           
                            
                            System.out.println(" ");
                            System.out.println("Digite qualquer tecla para voltar ao menu");
@@ -314,7 +359,7 @@ public class Gerencia_faculdade {
                            break;
 
                          case "P":
-                           segundoMenuEscolha();
+                           escolha = segundoMenuEscolha();
                            
                            System.out.println(" ");
                            System.out.println("Digite qualquer tecla para voltar ao menu");
