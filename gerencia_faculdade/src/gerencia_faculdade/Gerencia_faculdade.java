@@ -154,7 +154,7 @@ public class Gerencia_faculdade {
                                 System.out.println("");
                                System.out.println("Digite o número da disciplina "
                                            + "que deseja excluir");
-                                  int indice = Integer.parseInt(leitor.next().trim());
+                                  int indice = Integer.parseInt(leitor.nextLine().trim());
                                   d.remove(indice);
                                   
                                   System.out.println(" ");
@@ -339,19 +339,56 @@ public class Gerencia_faculdade {
                          case "A":
                            escolha = segundoMenuEscolha();
                            
+                           //criar
                            if (escolha == 1){
+                               System.out.println("Digite o nome do Aluno");
+                               String n = leitor.nextLine().trim();
                                
+                               System.out.println("Digite a matrícula do Aluno");
+                               int nr_mat = Integer.parseInt(leitor.nextLine().trim());
+                               
+                               e.add(new Estudante(n, nr_mat));
+                               
+                               System.out.println(" ");
+                               System.out.println("Aluno cadastrado!");
+                               
+                               
+                           //exclusao    
                            }else if(escolha == 2){
+                               for (int i = 0; i < e.size(); i++) {
+                                   System.out.println("Matricula: "+e.get(i).getMatricula()+" Aluno: "+e.get(i).getNome());
+                               }
                                
+                               System.out.println("");
+                               System.out.println("Digite o número da matricula do Aluno "
+                                           + "que deseja excluir");
+                                  int indice = Integer.parseInt(leitor.nextLine().trim());
+                                  e.remove(indice);
+                                  
+                                  System.out.println(" ");
+                                  System.out.println("Aluno deletado!");
+                               
+                               // pesquisar
                            }else if(escolha == 3){
+                               System.out.println("Digite a matricula do aluno que voce deseja pesquisar");
+                               int mat = Integer.parseInt(leitor.nextLine().trim());
                                
+                               for (int i = 0; i < e.size(); i++) {
+                                   if (e.get(i).getMatricula() == mat){
+                                       System.out.println("Aluno: "+ e.get(i).getNome()+"\n"+
+                                                            "Matricula: "+ e.get(i).getMatricula());
+                                   }
+                               }
+                               
+                               //listagem
                            }else if(escolha == 4){
-                               
+                               for (int i = 0; i < e.size(); i++) {
+                                       System.out.println("Aluno: "+ e.get(i).getNome()+" "+
+                                                            "Matricula: "+ e.get(i).getMatricula());
+                                   
+                               }
                            }
-                           
-                           
-                           
-                           
+
                            System.out.println(" ");
                            System.out.println("Digite qualquer tecla para voltar ao menu");
                            
@@ -360,6 +397,12 @@ public class Gerencia_faculdade {
 
                          case "P":
                            escolha = segundoMenuEscolha();
+                           
+                           if(escolha ==1){
+                               
+                           }else if(escolha == 2){
+                               
+                           }
                            
                            System.out.println(" ");
                            System.out.println("Digite qualquer tecla para voltar ao menu");
