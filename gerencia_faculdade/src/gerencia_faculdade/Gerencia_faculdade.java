@@ -255,9 +255,55 @@ public class Gerencia_faculdade {
                                ArrayList<Estudante> eArray = new ArrayList<>();
                                Professor professor_add = null ;
                                
-                               System.out.println("Digite o número da turma ");
-                               int nr = Integer.parseInt(leitor.nextLine());
+                               //
+                                                             
                                
+                               
+                               
+                               
+                               
+                               //--------------------------
+                               int nr=0;
+                               String nr_mat_teste="";
+                               boolean testa =true;
+                               
+                               do{
+                               System.out.println("Digite o número da turma ");
+                                 nr_mat_teste = leitor.nextLine().trim();
+                                
+                               if(String.valueOf(nr_mat_teste).length() > 10){
+                                   testa = false;
+                                   System.out.println("");
+                                   System.out.println("Digite um número com no máximo 10 algarísmos!");
+                                   System.out.println("");
+                               }else if(nr_mat_teste.equals("")){
+                                   testa = false;
+                                   System.out.println("");
+                                   System.out.println("Campo não pode ser vazio!");
+                                   System.out.println("");
+                               }
+                               else
+                               {
+                                   nr = Integer.parseInt(nr_mat_teste);
+                                   testa = true;
+                               }
+                               }while(!testa);
+                               
+                               
+                               
+                               
+                               
+                               
+                               //--------------------------
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               ///
                                System.out.println("Lista de Professores:");
                                for (int i = 0; i < p.size(); i++) {
                                    System.out.println(p.get(i).getNumero()+"<-- "+p.get(i).getNome());
@@ -279,13 +325,20 @@ public class Gerencia_faculdade {
                                         System.out.println("");
                                         break;
                                         }
-
+                                        else if (nr_prof.equals("")){
+                                            testa1 = false;
+                                            System.out.println("");
+                                            System.out.println("Campo não pode ser vazio!");
+                                            System.out.println("");
+                                            break;
+                                        }
                                         else if (p.get(i).getNumero() == Integer.parseInt(nr_prof)){
                                             testa1= true;
                                             professor_add = p.get(i);
 
                                             System.out.println("");
-                                            System.out.println("Professor adicionado");
+                                            System.out.println("Professor adicionado!");
+                                            System.out.println("");
                                             break;
                                         }   
                                         else if (i == (p.size() -1)){
@@ -320,13 +373,16 @@ public class Gerencia_faculdade {
                                              System.out.println(" ");
                                              System.out.println("Esse aluno já foi adicionado nessa turma"); // critica
                                              critica = false;
-                                            }
                                             break;
+                                            } 
                                         }
 
                                         if (critica){ 
                                              if(e.get(i).getMatricula() == nr_matricula){
                                                  eArray.add(e.get(i));
+                                                 
+                                                 System.out.println(" ");
+                                                 System.out.println("Aluno adicionada.");
                                                  break;
                                              }
                                              if(i == (e.size() -1)){
