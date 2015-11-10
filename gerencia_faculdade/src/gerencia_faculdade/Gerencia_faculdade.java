@@ -257,11 +257,7 @@ public class Gerencia_faculdade {
                                
                                //
                                                              
-                               
-                               
-                               
-                               
-                               
+                           
                                //--------------------------
                                int nr=0;
                                String nr_mat_teste="";
@@ -271,7 +267,9 @@ public class Gerencia_faculdade {
                                System.out.println("Digite o número da turma ");
                                  nr_mat_teste = leitor.nextLine().trim();
                                 
-                               if(String.valueOf(nr_mat_teste).length() > 10){
+                                                             
+                                  
+                                 if(String.valueOf(nr_mat_teste).length() > 10){
                                    testa = false;
                                    System.out.println("");
                                    System.out.println("Digite um número com no máximo 10 algarísmos!");
@@ -284,9 +282,19 @@ public class Gerencia_faculdade {
                                }
                                else
                                {
+                                   
                                    nr = Integer.parseInt(nr_mat_teste);
                                    testa = true;
                                }
+                                   for (int i = 0; i < t.size(); i++) {
+                                       if(nr == t.get(i).getNumero()){
+                                           System.out.println("");
+                                           System.out.println("Ja existe turma com esse numero!");
+                                           System.out.println("");
+                                           testa = false;
+                                       }
+                                   }
+                                 
                                }while(!testa);
                                
                                
@@ -295,13 +303,7 @@ public class Gerencia_faculdade {
                                
                                
                                //--------------------------
-                               
-                               
-                               
-                               
-                               
-                               
-                               
+
                                
                                ///
                                System.out.println("Lista de Professores:");
@@ -382,7 +384,7 @@ public class Gerencia_faculdade {
                                                  eArray.add(e.get(i));
                                                  
                                                  System.out.println(" ");
-                                                 System.out.println("Aluno adicionada.");
+                                                 System.out.println("Aluno adicionado.");
                                                  break;
                                              }
                                              if(i == (e.size() -1)){
