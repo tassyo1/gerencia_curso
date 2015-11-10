@@ -33,12 +33,28 @@ public class Gerencia_faculdade {
         return escolha;
     }
     public static int segundoMenuEscolha(){
+        boolean testa = false;
+        int esc =0;
+        String opcoes[] = {"1","2","3","4"};
+        String esc_testa="";
+        
+        do{
         System.out.println("Digite o respectivo número");
         System.out.println("1- Criar");
         System.out.println("2- Excluir");
         System.out.println("3- Pesquisar");
         System.out.println("4- Listagem");
-        int esc = Integer.parseInt(leitor.nextLine());
+        
+        esc_testa = leitor.nextLine().trim();
+        
+            for (int i = 0; i < opcoes.length; i++) {
+                if(opcoes[i].equals(esc_testa)){
+                   testa= true; 
+                   break;
+                }
+            }   
+        }while(!testa);
+        esc = Integer.parseInt(esc_testa);     
         return esc;
     }
     
@@ -154,12 +170,36 @@ public class Gerencia_faculdade {
                                    System.out.println(i+"<-- "+d.get(i).getNome());
                                }
                                
-                              
+                               int indice =0;
+                               String indice_teste="";
+                               boolean testa =true;
+                               
+                                  ///
+                               do{
+                                   
                                System.out.println("");
                                System.out.println("Digite o número da disciplina "
                                            + "que deseja excluir");
-                                  int indice = Integer.parseInt(leitor.nextLine().trim());
-                                  
+                                  indice_teste = leitor.nextLine().trim();
+                                
+                               if(String.valueOf(indice_teste).length() > 10){
+                                   testa = false;
+                                   System.out.println("");
+                                   System.out.println("Digite um número com no máximo 10 algarísmos!");
+                                   System.out.println("");
+                               }else if(indice_teste.equals("")){
+                                   testa = false;
+                                   System.out.println("");
+                                   System.out.println("Campo não pode ser vazio!");
+                                   System.out.println("");
+                               }
+                               else
+                               {
+                                   indice = Integer.parseInt(indice_teste);
+                                   testa = true;
+                               }
+                               }while(!testa);
+
                                   for (int i = 0; i < d.size(); i++) {
                                        if( i == indice){
                                            d.remove(indice);
@@ -222,16 +262,45 @@ public class Gerencia_faculdade {
                                for (int i = 0; i < p.size(); i++) {
                                    System.out.println(p.get(i).getNumero()+"<-- "+p.get(i).getNome());
                                }
-                               System.out.println("");
-                               System.out.println("Digite o número do Professor desejado");
-                               int nr_prof = Integer.parseInt(leitor.nextLine());
+                               boolean testa1 = true;
+                               String nr_prof= "";
+                               do {
                                
-                               for (int i = 0; i < p.size(); i++) {
-                                   if(p.get(i).getNumero() == nr_prof){
-                                       professor_add = p.get(i);
-                                       break;
-                                   }   
-                               }
+                                    System.out.println("");
+                                    System.out.println("Digite o número do Professor desejado");
+                                    nr_prof = (leitor.nextLine().trim());
+
+                                    for (int i = 0; i < p.size(); i++) {
+
+                                        if(String.valueOf(nr_prof).length() > 10){
+                                            testa1 = false;
+                                        System.out.println("");
+                                        System.out.println("Digite um número com no máximo 10 algarísmos!");
+                                        System.out.println("");
+                                        break;
+                                        }
+
+                                        else if (p.get(i).getNumero() == Integer.parseInt(nr_prof)){
+                                            testa1= true;
+                                            professor_add = p.get(i);
+
+                                            System.out.println("");
+                                            System.out.println("Professor adicionado");
+                                            break;
+                                        }   
+                                        else if (i == (p.size() -1)){
+                                            testa1 = false;
+                                            System.out.println("");
+                                        System.out.println("Professor não encontrado!");
+                                        System.out.println("");
+                                        break;
+                                    }
+                               
+                                }
+                               }while(!testa1);
+                               
+                               
+
                                
                                
                                do{
@@ -290,8 +359,6 @@ public class Gerencia_faculdade {
                                System.out.println(" ");
                                System.out.println("Turma criada!");
                            
-                           
-
                             //exclusao
                            }else if(escolha == 2){
                                for (int i = 0; i < t.size(); i++) {
@@ -338,8 +405,6 @@ public class Gerencia_faculdade {
                                    System.out.println("Turma: "+ t.get(i).getNumero());
                                }  
                            }
-
-                           
                            System.out.println(" ");
                            System.out.println("Digite qualquer tecla para voltar ao menu");
                            
@@ -348,7 +413,6 @@ public class Gerencia_faculdade {
                            break;
                          case "A":
                            escolha = segundoMenuEscolha();
-                           
                            //criar
                            if (escolha == 1){
                                System.out.println("Digite o nome do Aluno");
@@ -378,26 +442,49 @@ public class Gerencia_faculdade {
                                    nr_mat = Integer.parseInt(nr_mat_teste);
                                    testa = true;
                                }
-                               
                                }while(!testa);
-                               
+                              
                                e.add(new Estudante(n, nr_mat));
                                
                                System.out.println(" ");
                                System.out.println("Aluno cadastrado!");
-                               
-                               
+                                 
                            //exclusao    
                            }else if(escolha == 2){
+                               
+                               int e_mat=0;
+                               String nr_mat_teste="";
+                               boolean testa =true;
+                               
                                for (int i = 0; i < e.size(); i++) {
                                    System.out.println("Matricula: "+e.get(i).getMatricula()+" Aluno: "+e.get(i).getNome());
                                }
                                
+                               do{
                                System.out.println("");
                                System.out.println("Digite o número da matricula do Aluno "
                                            + "que deseja excluir");
-                                  int e_mat = leitor.nextInt();
+                                  nr_mat_teste = leitor.nextLine().trim();
                                   
+                                        if(String.valueOf(nr_mat_teste).length() > 10){
+                                            testa = false;
+                                            System.out.println("");
+                                            System.out.println("Digite um número com no máximo 10 algarísmos!");
+                                            System.out.println("");
+                                        }else if(nr_mat_teste.equals("")){
+                                            testa = false;
+                                            System.out.println("");
+                                            System.out.println("Campo não pode ser vazio!");
+                                            System.out.println("");
+                                        }
+                                        else
+                                        {
+                                            e_mat = Integer.parseInt(nr_mat_teste);
+                                            testa = true;
+                                        }
+ 
+                               }while(!testa);
+                               
                                   for (int i = 0; i < e.size(); i++) {
                                       if(e.get(i).getMatricula() == e_mat){
                                           e.remove(i);
@@ -409,7 +496,7 @@ public class Gerencia_faculdade {
                                       if(i == (e.size() -1)){
                                        System.out.println(" ");
                                            System.out.println("Aluno não encontrado!");
-                                       break;
+                                            break;
                                         }
                                   }
                                // pesquisar
@@ -419,29 +506,26 @@ public class Gerencia_faculdade {
                                boolean testa =true;
                                
                                do{
-                               System.out.println("Digite a matricula do aluno que voce deseja pesquisar");
-                               nr_mat_teste = leitor.nextLine();
-                               
-                               if(String.valueOf(nr_mat_teste).length() > 10){
-                                   testa = false;
-                                   System.out.println("");
-                                   System.out.println("Digite um número com no máximo 10 algarísmos!");
-                                   System.out.println("");
-                               }else if(nr_mat_teste.equals("")){
-                                   testa = false;
-                                   System.out.println("");
-                                   System.out.println("Campo não pode ser vazio!");
-                                   System.out.println("");
-                               }
-                               else
-                               {
-                                   mat = Integer.parseInt(nr_mat_teste);
-                                   testa = true;
-                               }
-                                   
-                                   
-                               }while(!testa);                          
-                               
+                                        System.out.println("Digite a matricula do aluno que voce deseja pesquisar");
+                                        nr_mat_teste = leitor.nextLine();
+
+                                        if(String.valueOf(nr_mat_teste).length() > 10){
+                                            testa = false;
+                                            System.out.println("");
+                                            System.out.println("Digite um número com no máximo 10 algarísmos!");
+                                            System.out.println("");
+                                        }else if(nr_mat_teste.equals("")){
+                                            testa = false;
+                                            System.out.println("");
+                                            System.out.println("Campo não pode ser vazio!");
+                                            System.out.println("");
+                                        }
+                                        else
+                                        {
+                                            mat = Integer.parseInt(nr_mat_teste);
+                                            testa = true;
+                                        }
+                               }while(!testa);       
                                
                                for (int i = 0; i < e.size(); i++) {
                                    if (e.get(i).getMatricula() == mat){
@@ -516,25 +600,52 @@ public class Gerencia_faculdade {
                                
                             //exclusao   
                            }else if(escolha == 2){
+                               boolean testa = true;
+                               String nr_teste="";
+                               int nr_p = 0;
+                               
                                for (int i = 0; i < p.size(); i++) {
                                    System.out.println("Número: "+p.get(i).getNumero()+" Professor: "+p.get(i).getNome());
                                }
-                            System.out.println(" ");   
-                            System.out.println("Digite o número de cadastro Professor");
-                            int nr_p = Integer.parseInt(leitor.nextLine().trim());
-                            
-                               for (int i = 0; i < p.size(); i++) {
-                                   if( p.get(i).getNumero() == nr_p){
-                                       p.remove(i);
-                                       
-                                       System.out.println(" ");
-                                       System.out.println("Professor deletado!");
-                                       break;
-                                   }
-                               }
+                               
+                               do{
+                                    System.out.println(" ");   
+                                    System.out.println("Digite o número de cadastro Professor que deseja excluir");
+                                     nr_teste = leitor.nextLine().trim();
+                                     
+                                     if(String.valueOf(nr_teste).length() > 10){
+                                         testa = false;
+                                        System.out.println("");
+                                        System.out.println("Digite um número com no máximo 10 algarísmos!");
+                                        System.out.println("");
+                                     
+                                     }else if(nr_teste.equals("")){
+                                         testa = false;
+                                        System.out.println("");
+                                        System.out.println("Campo não pode ser vazio!");
+                                        System.out.println("");
+                                     }
+                                     else{
+                                         testa= true;
+                                         nr_p = Integer.parseInt(nr_teste);
+                                            for (int i = 0; i < p.size(); i++) {
+                                                if( p.get(i).getNumero() == nr_p){
+                                                    p.remove(i);
+
+                                                    System.out.println(" ");
+                                                    System.out.println("Professor deletado!");
+                                                    break;
+                                                }
+                                                if(i == (p.size() - 1)){
+                                                    System.out.println(" ");
+                                                    System.out.println("Professor não encontrado!");
+                                                    break;
+                                                }
+                                            }
+                                     }
+                               }while(!testa);
                                //pesquisar
                            }else if(escolha == 3){
-                              
                                boolean testa = true;
                                String nr_teste="";
                                int nr_p = 0;
@@ -558,8 +669,7 @@ public class Gerencia_faculdade {
                                else{
                                    nr_p = Integer.parseInt(nr_teste);
                                    testa = true;
-                               }
-                               
+                               }                             
                                }while(!testa);
                                
                                for (int i = 0; i < p.size(); i++) {
